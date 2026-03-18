@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Enrollment Score">
+
+        <!-- If score exists -->
+        <template if:true={score}>
+            <div class="slds-p-around_medium">
+                <p><strong>Score:</strong> {score.Score__c}</p>
+                <p><strong>Action:</strong> {score.Recommended_Action__c}</p>
+                <p><strong>Source:</strong> {score.Source_System__c}</p>
+                <p><strong>Date:</strong> {score.Scored_At__c}</p>
+
+                <span class={badgeClass}>{priorityLabel}</span>
+            </div>
+        </template>
+
+        <!-- If no score -->
+        <template if:false={score}>
+            <div class="slds-p-around_medium">
+                No enrollment score available yet
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
